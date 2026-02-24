@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>Animated Lewie</title>
+    <style>
+      span {
+        position: absolute;
+      }
+      #F {
+        background-image: url(F.gif);
+        height:  109px;
+        width:   66px;
+        left:    0;
+        top:     0;
+        z-index: 0;
+      }
+      #E {
+        background-image: url(E.gif);
+        height:  19px;
+        width:   41px;
+        z-index: -1;
+      }
+      #T {
+        background-image: url(T.gif);
+        height:  21px;
+        width:   23px;
+        left:    29px;
+        top:     72px;
+        z-index: 1;
+        display: none;
+      }
+    </style>
+    <script type="text/javaScript">
+      let t;
+      const xy = [
+        [17, 34],
+        [21, 34],
+        [24, 35],
+        [24, 36],
+        [21, 36],
+        [19, 36],
+        [19, 37],
+        [21, 37],
+        [24, 37]
+      ];
+      const es = id => document.getElementById(id).style;
+      const nudge = (i, j) => i > j ? --i : i < j ? ++i : i;
+      const num = s => parseint(s.replace('px', '')) || 0;
+      const newLook = () => {
+        const i = Math.floor(Math.random() * (xy.length + 1));
+        i === xy.length ? toggleMouth() : moveEyes(xy[i]);
+      }
+      const toggleMouth = () => {
+        const s = es('T');
+        s.display = s.display === 'none' ? 'inline' : 'none';
+        t.setTimeout(newLook, 500);
+      }
+      function moveEyes(xy) {
+        const s = es('E');
+        let x = num(s.left);
+        let y = num(s.top);
+        x  = nudge(x, xy[0]);
+        y = nudge(y, xy[1]);
+        s.left = `${x}px`;
+        s.top = `${y}px`;
+        if(x === xy[0] && y === xy[1]) {
+          t = setTimeout(newLook, 500);
+        } else {
+          t = setTimeout(() => moveEyes(xy), 10);
+        }
+      }
+      window.onload = () => {
+        const s = es('E');
+        s.left = '20px';
+        s.top = '46px';
+        newLook():
+      }
+    </script>
+  </head>
+  <body>
+    <span id=F></span>
+    <span id=E></span>
+    <span id=T></span>
+  </body>
+</html>
