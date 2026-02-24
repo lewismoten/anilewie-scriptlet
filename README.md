@@ -3,11 +3,11 @@ An old scriptlet from the 90's converted to modern day JavaScript
 
 It plays with layering to animage a picture of me with eyes moving around, and the mouth opening and closing using the z-index and picking a random coordinate from a pre-defined list to move the eyes.
 
-![Face](F.gif)
+![Face](F.GIF)
 
-![Eyes](E.gif)
+![Eyes](E.GIF)
 
-![Mouth](T.gif)
+![Mouth](T.GIF)
 
 Originally I wrote this little experiment on February 1, 1999 when I was getting comfortable with Scriptlets. The scriptlet is [./ANILEWIE.SCT] and is just an HTML file with vbScript. In the late 90's, vbScript was popular with Government contracts since it was guarenteed that everyone was using Microsoft Internet Explorer, and many programmers were comming from a Visual Basic or BASIC background. Even Classic ASP default scripting language was vbScript.
 
