@@ -6,7 +6,7 @@
         position: absolute;
       }
       #F {
-        background-image: url(./F.gif);
+        background-image: url(F.GIF);
         height:  109px;
         width:   66px;
         left:    0;
@@ -14,13 +14,13 @@
         z-index: 0;
       }
       #E {
-        background-image: url(./E.gif);
+        background-image: url(E.GIF);
         height:  19px;
         width:   41px;
         z-index: -1;
       }
       #T {
-        background-image: url(./T.gif);
+        background-image: url(T.GIF);
         height:  21px;
         width:   23px;
         left:    29px;
@@ -44,7 +44,7 @@
       ];
       const es = id => document.getElementById(id).style;
       const nudge = (i, j) => i > j ? --i : i < j ? ++i : i;
-      const num = s => parseint(s.replace('px', '')) || 0;
+      const num = s => parseInt(s.replace('px', '')) || 0;
       const newLook = () => {
         const i = Math.floor(Math.random() * (xy.length + 1));
         i === xy.length ? toggleMouth() : moveEyes(xy[i]);
