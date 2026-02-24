@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 04 Jan 2000 16:00:00 GMT">
+<TITLE>Scriptlet</TITLE>
+<script language=vbs>
+Dim Timer1
+Sub Window_onLoad:Randomize Timer:E.style.left=20:E.style.top=46:NewLook:End Sub
+Sub NewLook:Select Case Int(Rnd*10):Case 0 MoveETo 17,34:Case 1 MoveETo 21,34:Case 2 MoveETo 24,35:Case 3 MoveETo 24,36:Case 4 MoveETo 21,36:Case 5 MoveETo 19,36:Case 6 MoveETo 19,37:Case 7 MoveETo 21,37:Case 8 MoveETo 24,37:Case 9 ToggleMouth:End Select:End Sub:Sub ToggleMouth:If T.style.display="none" Then T.style.display="inline" Else T.style.display="none" End If:Timer1=window.setTimeout("NewLook",500):End Sub
+Sub MoveETo(x,y):Dim xx:Dim yy:xx=CInt(Replace(E.style.left,"px","")):yy=CInt(Replace(E.style.top,"px",""))
+If x>xx Then
+E.style.left=xx+1
+ElseIf x<xx Then
+E.style.left=xx-1
+End If
+If y>yy Then
+E.style.top=yy+1
+ElseIf y<yy Then
+E.style.top=yy-1
+End If
+xx=CInt(Replace(E.style.left,"px","")):yy=CInt(Replace(E.style.top, "px",""))
+If xx=x And yy=y Then Timer1=window.setTimeout("NewLook",500) Else Timer1=window.setTimeout("MoveETo "&x&","&y,10)
+End Sub
+</script>
+<style>
+SPAN{POSITION:absolute;}
+#F{BACKGROUND-IMAGE:url(F.gif);HEIGHT:109px;WIDTH:66px;LEFT:0px;TOP:0px;z-Index:0;}#E{BACKGROUND-IMAGE:url(E.gif);HEIGHT:19px;WIDTH:41px;z-Index:-1;}#T{BACKGROUND-IMAGE:url(T.gif);HEIGHT:21px;WIDTH:23px;LEFT:29px;TOP:72px;z-Index:1;DISPLAY:none;}</style></HEAD><BODY><SPAN ID=F></SPAN><SPAN ID=E></SPAN><SPAN ID=T></SPAN></BODY></HTML>
